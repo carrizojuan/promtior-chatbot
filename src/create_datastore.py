@@ -9,12 +9,11 @@ load_dotenv()
 
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-WEBSITE_URL = "https://www.promtior.com/service"
+WEBSITE_URL = "https://www.promtior.ai/service"
 
 
-TEXT_FILE_PATH = os.getenv("TEXT_FILE_PATH", os.path.join(CURRENT_DIR, "data", "aboutPromtior.txt"))
-
-VECTOR_STORE_PATH = os.getenv("VECTOR_STORE_PATH", os.path.join(CURRENT_DIR, "vectorstore"))
+TEXT_FILE_PATH = os.path.join(CURRENT_DIR, "data", "aboutPromtior.txt")
+VECTOR_STORE_PATH = os.path.join(CURRENT_DIR, "vectorstore")
 
 
 def main():
@@ -22,8 +21,7 @@ def main():
 
 def generate_data_store():
     documents = load_documents()
-    chunks = split_text(documents)
-    return save_to_chroma(chunks)
+    return save_to_chroma(documents)
 
 def load_documents():
     doc_text = load_text_content()

@@ -11,8 +11,7 @@ load_dotenv()
 
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-VECTOR_STORE_PATH = os.getenv("VECTOR_STORE_PATH", os.path.join(CURRENT_DIR, "vectorstore"))
-
+VECTOR_STORE_PATH = os.path.join(CURRENT_DIR, "vectorstore")
 PROMPT_TEMPLATE = """
 You are a question answering task assistant for Promptior company. 
 Use the following pieces of recovered context to answer the question.
@@ -34,8 +33,7 @@ def get_rag_chain():
         persist_directory=VECTOR_STORE_PATH,
         embedding_function=embeddings
     )
-    retriever = vectorstore.as_retriever(search_kwargs={"k": 2})
-    
+    retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
     model = ChatOpenAI()
     
     prompt = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
@@ -54,3 +52,4 @@ def format_docs(docs):
     return response_text
 
 
+rag_chain = get_rag_chain()
