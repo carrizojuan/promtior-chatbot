@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "promtior-chatbot"
+version = "0.1.0"
+description = ""
+authors = ["Juan Cruz <juancarrizoast@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+langchain = "^0.3.7"
+chromadb = "^0.5.18"
+openai = "^1.54.4"
+langchain-chroma = "^0.1.4"
+langchain-openai = "^0.2.8"
+python-dotenv = "^1.0.1"
+langchain-community = "^0.3.7"
+beautifulsoup4 = "^4.12.3"
+langchain-core = "^0.3.18"
+fastapi = "^0.115.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
